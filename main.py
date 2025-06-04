@@ -12,7 +12,7 @@ from yolov8_detect import detect_person
 
 # === Configuration ===
 SERVO = 17
-USE_WEIGHT_SENSOR = False  # Set to True if HX711 is connected
+USE_WEIGHT_SENSOR = True  # Set to True if HX711 is connected
 HX_DT = 5
 HX_SCK = 6
 output_dir = "/home/yourusername/Desktop/output/"  # Change this path to your environment
