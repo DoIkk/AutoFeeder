@@ -1,13 +1,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 네트워크 관련 권한 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    
+    <!-- 오디오 녹음 및 재생 권한 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    
+    <!-- 파일 저장소 접근 권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" android:minSdkVersion="33"/>
+    
+    <!-- 웨이크 락 (앱이 백그라운드에서도 동작하기 위해) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    
+    <!-- 카메라 권한 (WebView에서 카메라 스트리밍을 위해) -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    
+    <!-- 진동 권한 (알림을 위해) -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    
+    <!-- 앱이 foreground service를 사용할 수 있도록 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    
     <application
-        android:label="flutter_application_1"
+        android:label="PetFeeder"
         android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"
-        android:icon="@mipmap/ic_launcher">
+        android:requestLegacyExternalStorage="true"
+        android:allowBackup="true"
+        android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".MainActivity"
             android:exported="true"
